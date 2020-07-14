@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Students Details</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<style type="text/css">
+		form {
+
+		}
+	</style>
+</head>
+<body>
+	<center>
+		<hr style="margin-top: 30px;"><h1>Students Extra Curriculuar Activities Registration Forum</h1><hr style="margin-bottom: 40px;">
+		<h2> Department of Information Technology </h2>
+		<h2 style="font-family: sans-serif; color: green"> Government College of Technology, CBE - 13</h2>
+		<br>
+		<h2>View Students Details</h2>
+		<form method="post" action="view">
+			<input type="radio" name="choice" value="single"><label>Single Student's Details</label>
+			<br><br>
+			<label>Register no</label>
+			<input type="text" name="regno">	
+			<br>
+			<br>
+			<input type="radio" name="choice" value="club"><label>View students club wise</label>
+			<br><br>
+			<label>Club Name:</label>
+			<select name="club">
+				<option value="tm">Tamizh mandram</option>
+				<option value="sjc">SJC</option>
+				<option value="rac">Rac GCT</option>
+				<option value="ys">Y's club</option>
+				<option value="green">Green club</option>
+				<option value="lds">LDS</option>
+			</select>
+			<br><br>
+			<input type="radio" name="choice" value="dept"><label>View students department wise</label>
+			<br><br>
+			<label>Dept Name:</label>
+			<select name="dept">
+				<option value="mech">MECH</option>
+				<option value="civil">CIVIL</option>
+				<option value="it">IT</option>
+				<option value="cse">CSE</option>
+				<option value="ece">ECE</option>
+				<option value="eee">EEE</option>
+				<option value="ibt">IBT</option>
+			</select>
+			<br><br>
+			<input type="submit" name="submit">
+		</form>
+	</center>
+</body>
+</html>

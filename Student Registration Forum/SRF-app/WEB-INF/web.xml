@@ -1,0 +1,92 @@
+<web-app>
+
+	<!-- register -->
+	<servlet>
+		<servlet-name>registerDb</servlet-name>
+		<servlet-class>RegisterDb</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>registerDb</servlet-name>
+		<url-pattern>/registerDb</url-pattern>
+	</servlet-mapping>
+
+	<!-- login -->
+	<servlet>
+		<servlet-name>loginDb</servlet-name>
+		<servlet-class>LoginDb</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>loginDb</servlet-name>
+		<url-pattern>/loginDb</url-pattern>
+	</servlet-mapping>
+
+	<!-- admin -->
+	<servlet>
+		<servlet-name>adminDb</servlet-name>
+		<servlet-class>AdminDb</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>adminDb</servlet-name>
+		<url-pattern>/admin</url-pattern>
+	</servlet-mapping>
+
+	<!-- verify user -->
+	<servlet>
+		<servlet-name>verifyUser</servlet-name>
+		<servlet-class>VerifyUser</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>verifyUser</servlet-name>
+		<url-pattern>/verify</url-pattern>
+	</servlet-mapping>
+
+	<!-- verify user -->
+	<servlet>
+		<servlet-name>logout</servlet-name>
+		<servlet-class>LogoutDb</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logout</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+
+	<!-- user profile -->
+	<servlet>
+		<servlet-name>profile</servlet-name>
+		<servlet-class>ProfileDb</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>profile</servlet-name>
+		<url-pattern>/profile</url-pattern>
+	</servlet-mapping>
+
+	<!-- add activities -->
+	<servlet>
+		<servlet-name>addActivity</servlet-name>
+		<servlet-class>AddActivitiesDb</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>addActivity</servlet-name>
+		<url-pattern>/activitiesDb</url-pattern>
+	</servlet-mapping>
+
+	<!-- display activities -->
+	<servlet>
+		<servlet-name>displayActivities</servlet-name>
+		<servlet-class>DisplayActivities</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>displayActivities</servlet-name>
+		<url-pattern>/displayActivities</url-pattern>
+	</servlet-mapping>
+
+	<!-- view student --> 
+	<servlet>
+		<servlet-name>viewDetails</servlet-name>
+		<servlet-class>ViewDetails</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>viewDetails</servlet-name>
+		<url-pattern>/view</url-pattern>
+	</servlet-mapping>
+</web-app>

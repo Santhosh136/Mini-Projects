@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+	<center>
+		<hr><h2>Registeration</h2><hr>
+		<form autocomplete="off" action="registerDb" method="post">
+			<table cellspacing="20px">
+				<tr>
+					<td>
+						Username
+					</td>
+					<td>	
+						<input type="text" name="uname" placeholder="Student's Name">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Register No
+					</td>
+					<td>
+						<input type="text" name="regno" placeholder="Student's Regno">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						DOB
+					</td>
+					<td>
+						<input type="text" name="dob" placeholder="YYYY-MM-DD">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Department
+					</td>
+					<td>
+						<select name="dept">
+							<option value="---">---</option>
+							<option value="mech">Mech</option>
+							<option value="civil">Civil</option>
+							<option value="eee">EEE</option>
+							<option value="ece">ECE</option>
+							<option value="cse">CSE</option>
+							<option value="it">IT</option>
+							<option value="ibt">IBT</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Gender
+					</td>
+					<td>
+						<input type="radio" name="gender" value="male">Male
+						<input type="radio" name="gender" value="female">Female
+						<input type="radio" name="gender" value="others">Others
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Password
+					</td>
+					<td>
+						<input type="password" name="passwd" placeholder="must be 8 or more">
+					</td>
+				</tr>
+				<tr>	
+					<td>
+						<input type="submit" name="submit" >
+					</td>
+					<td>
+						<button type="cancel">Cancel</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<a href="index.jsp" style='font-family:sans-serif; font-size:20px; color:green'>Click here to go home</a>
+	</center>
+</body>
+</html>
