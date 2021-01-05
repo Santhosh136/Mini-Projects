@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts::header">
+<body>
+	<nav th:replace="layouts::myNav"></nav>
+	
+	<form action="/employees/save" th:object="${employee}" method="post">
+		
+		<label>First name:</label>
+		<input type="text" placeholder="first name" th:field="*{firstName}">
+		<span th:errors="*{firstName}">Error</span>
+		<br>
+			
+		<label>Last name:</label>
+		<input type="text" placeholder="last name" th:field="*{lastName}">
+		<span th:errors="*{lastName}">Error</span>
+		<br>
+		
+		<label>Email id:</label>			
+		<input type="text" placeholder="email id" th:field="*{email}">
+		<span th:errors="*{email}">Error</span>
+		<br>
+		
+		<label>select projects:</label>
+		<select th:field="*{projects}" multiple="multiple">
+			<option th:each="project : ${projects}"
+			th:text="${project.name}"
+			th:value="${project.id}">
+			</option>
+		</select>
+		<br></br>
+		
+		<input type="submit">
+		<input type="reset" value="Cancel">
+	</form>
+</body>
+<script th:replace="layouts::script"></script>
+</html>
