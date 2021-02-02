@@ -15,7 +15,7 @@
 			</thead>
 			<tbody>
 				<tr th:each="employee : ${employees}">
-					<td th:text="${employee.id}"></td>
+					<td th:text="${employee.employeeId}"></td>
 					<td th:text="${employee.firstName}"></td>
 					<td th:text="${employee.lastName}"></td>
 					<td th:text="${employee.email}"></td>
@@ -23,6 +23,10 @@
 			</tbody>
 		</table>
 	</div>
+	<script>
+		var employeesJsonStr = "[[${employee}]]";
+		console.log(employeesJsonStr);
+	</script>
 </body>
 <script th:replace="layouts::script"></script>
 </html>

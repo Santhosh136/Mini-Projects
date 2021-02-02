@@ -1,8 +1,10 @@
 package com.santhosh.pma.controllers;
 
-import java.util.List;
-
 import javax.validation.Valid;
+
+import com.santhosh.pma.entities.Project;
+import com.santhosh.pma.services.EmployeeService;
+import com.santhosh.pma.services.ProjectService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,24 +14,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.santhosh.pma.entities.Project;
-import com.santhosh.pma.repositories.EmployeeRepository;
-import com.santhosh.pma.repositories.ProjectRepository;
-
 @Controller
 @RequestMapping("/projects")
 public class ProjectController {
 	
 	@Autowired
-	private ProjectRepository projectRepository;
+	private ProjectService projectService;
 	
 	@Autowired
-	private EmployeeRepository employeeRepository;
+	private EmployeeService employeeService;
 	
 	@GetMapping("/new")
 	public String displayProjectForm(Model model) {
 		model.addAttribute("project", new Project());
-		model.addAttribute("employees", employeeRepository.findAll());
+		model.addAttribute("employees", employeeService.findAll());
 		return "projects/project-form";
 	}
 	
@@ -39,21 +37,13 @@ public class ProjectController {
 			return "projects/project-form";
 		}
 		
-		projectRepository.save(project);
-		
-//		List<Employee> employees = project.getEmployees();
-//		for(Employee employee: employees) {
-//			employee.setProject(project);
-//			employeeRepository.save(employee);
-//		}
-		
+		projectService.save(project);
 		return "redirect:/projects/new";
 	}
 	
 	@GetMapping("/display") 
 	public String displayProjects(Model model) {
-		List<Project> projects = projectRepository.findAll();
-		model.addAttribute("projects", projects);
+		model.addAttribute("projects", projectService.findAll());
 		return "projects/project-display";
 	}
 }

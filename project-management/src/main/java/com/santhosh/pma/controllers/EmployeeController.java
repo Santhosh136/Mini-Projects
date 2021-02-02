@@ -1,8 +1,11 @@
 package com.santhosh.pma.controllers;
 
-import java.util.List;
-
 import javax.validation.Valid;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.santhosh.pma.entities.Employee;
+import com.santhosh.pma.services.EmployeeService;
+import com.santhosh.pma.services.ProjectService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,24 +15,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.santhosh.pma.entities.Employee;
-import com.santhosh.pma.repositories.EmployeeRepository;
-import com.santhosh.pma.repositories.ProjectRepository;
 
 @Controller
 @RequestMapping("/employees")
 public class EmployeeController {
 	
 	@Autowired
-	private EmployeeRepository employeeRepository;
-	
+	private EmployeeService employeeService;
+
 	@Autowired
-	private ProjectRepository projectRepository;
+	private ProjectService projectService;
 	
 	@GetMapping("/new")
 	public String displayEmployeeForm(Model model) {
 		model.addAttribute("employee", new Employee());
-		model.addAttribute("projects", projectRepository.findAll());
+		model.addAttribute("projects", projectService.findAll());
 		return "employees/employee-form";
 	}
 	
@@ -40,14 +40,14 @@ public class EmployeeController {
 			return "employees/employee-form";
 		}
 		
-		employeeRepository.save(employee);
+		employeeService.save(employee);
 		return "redirect:/employees/new";
 	}
 	
 	@GetMapping("/display") 
-	public String displayEmployees(Model model) {
-		List<Employee> employees = employeeRepository.findAll();
-		model.addAttribute("employees", employees);
+	public String displayEmployees(Model model) throws JsonProcessingException {
+		model.addAttribute("employees", employeeService.findAll());
 		return "employees/employee-display";
 	}
+
 }

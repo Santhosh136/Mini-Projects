@@ -3,6 +3,7 @@ package com.santhosh.pma.entities;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,18 +12,21 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
 public class Project {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	@SequenceGenerator(name = "project_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator ="project_seq")
+	private long projectId;
 	
 	@NotBlank
 	private String name;
 
+	@Column(name="stage")
 	private String status; // NOTSTARTED, INCOMPLETE, INPROGRESS
 	
 	@Size(min = 3, max = 100)
@@ -43,12 +47,12 @@ public class Project {
 		this.description = description;
 	}
 	
-	public long getId() {
-		return id;
+	public long getProjectId() {
+		return projectId;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setProjectId(long projectId) {
+		this.projectId = projectId;
 	}
 
 	public String getName() {
@@ -83,8 +87,4 @@ public class Project {
 		this.employees = employees;
 	}
 
-	@Override
-	public String toString() {
-		return "Project [id=" + id + ", name=" + name + ", status=" + status + ", description=" + description + "]";
-	}
 }

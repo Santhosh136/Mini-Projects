@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -18,8 +19,9 @@ import javax.validation.constraints.Size;
 @Entity
 public class Employee {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	@SequenceGenerator(name = "employee_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator ="employee_seq")
+	private long employeeId;
 	
 	@NotBlank
 	@Size(min = 3, max = 20)
@@ -47,12 +49,13 @@ public class Employee {
 		this.email = email;
 	}
 	
-	public long getId() {
-		return id;
+
+	public long getEmployeeId() {
+		return employeeId;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setEmployeeId(long employeeId) {
+		this.employeeId = employeeId;
 	}
 
 	public String getFirstName() {
@@ -86,11 +89,4 @@ public class Employee {
 	public void setProjects(List<Project> projects) {
 		this.projects = projects;
 	}
-
-	@Override
-	public String toString() {
-		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", project=" + projects + "]";
-	}
-	
 }

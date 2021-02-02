@@ -25,7 +25,7 @@
 		<select th:field="*{projects}" multiple="multiple">
 			<option th:each="project : ${projects}"
 			th:text="${project.name}"
-			th:value="${project.id}">
+			th:value="${project.projectId}">
 			</option>
 		</select>
 		<br></br>
